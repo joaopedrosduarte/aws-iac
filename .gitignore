@@ -1,0 +1,13 @@
+# Ignore everything
+*
+
+# Besides this files
+!main.py
+!README.md
+!requirements.txt
+!.gitignore
+!Docker-compose.yml
+
+# Also this folders
+!docker
+!iac

@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# Beside this files
+!.gitignore
+
+# And this folders
