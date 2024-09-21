@@ -2,10 +2,11 @@
 *
 
 # Besides this files
+!main.py
+!README.md
+!requirements.txt
 !.gitignore
-!Docker-compose.yml
+!Dockerfile
+!.dockerignore
 
 # Also this folders
-!iac
-!fastapi
-!nginx
