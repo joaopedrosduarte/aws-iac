@@ -15,7 +15,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-FROM python:3.10-slim
+FROM python:3.10-slim AS runtime
 
 WORKDIR /app
 
@@ -31,4 +31,8 @@ COPY . .
 
 EXPOSE 8000
 
+FROM runtime AS dev
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+FROM runtime AS prod
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

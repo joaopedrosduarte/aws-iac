@@ -20,6 +20,11 @@ responses = {
     3: "You have a lot of it! Congratulations!",
 }
 
+@app.get("/")
+async def home():
+    return {"message": DATABASE_URL}
+# postgresql://fastapi:dbpassword@0.0.0.0/do_you_have_it"
+
 # Endpoint to return a random string from a dict
 @app.get("/do-you-have-it")
 async def do_you_have_it():
@@ -35,6 +40,7 @@ async def do_you_have_it_db():
     # Setup PostgreSQL connection if DATABASE_URL is provided
     if DATABASE_URL:
         try:
+            print(DATABASE_URL)
             engine = create_engine(DATABASE_URL)
             metadata = MetaData()
             strings_table = Table("strings", metadata, autoload_with=engine)
@@ -47,7 +53,6 @@ async def do_you_have_it_db():
                     return {"message": result[0]}
                 else:
                     return {"message": "No data found in the database."}
-
         except (SQLAlchemyError, OperationalError) as sqle:
             raise HTTPException(status_code=500, detail=f"Database error: {str(sqle)}")
         except Exception as e:

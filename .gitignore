@@ -2,10 +2,15 @@
 *
 
 # Besides this files
+!README.md
 !.gitignore
 !Docker-compose.yml
+!Makefile
 
 # Also this folders
 !iac
-!fastapi
-!nginx
+!app
+!db
+
+# And everything in this folders
+!db/**
