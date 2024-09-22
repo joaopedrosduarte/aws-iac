@@ -3,7 +3,6 @@
 
 # Besides this files
 !main.py
-!README.md
 !requirements.txt
 !.gitignore
 !Dockerfile
