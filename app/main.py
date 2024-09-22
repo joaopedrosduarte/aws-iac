@@ -23,7 +23,6 @@ responses = {
 @app.get("/")
 async def home():
     return {"message": DATABASE_URL}
-# postgresql://fastapi:dbpassword@0.0.0.0/do_you_have_it"
 
 # Endpoint to return a random string from a dict
 @app.get("/do-you-have-it")
