@@ -15,3 +15,4 @@
 # And everything in this folders
 !conf.d/*
 !sites-available/*
+!letsencrypt/README.md

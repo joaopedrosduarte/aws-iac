@@ -5,7 +5,7 @@ down:
 	docker compose down -v	
 
 prod: 
-	docker compose -f ./Docker-compose.prod.yml up --build
+	docker compose -f ./Docker-compose.prod.yml up -d --build
 
 down-prod:
 	docker compose -f Docker-compose.prod.yml down -v
