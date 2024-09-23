@@ -1,8 +1,14 @@
 run: 
-	docker compose up
+	docker compose up -d --build
 
 down:
-	docker compose down
+	docker compose down -v	
+
+prod: 
+	docker compose -f ./Docker-compose.prod.yml up --build
+
+down-prod:
+	docker compose -f Docker-compose.prod.yml down -v
 
 clean: 
 	make down
@@ -15,6 +21,14 @@ run-db:
 clean-db:
 	docker rm dbp-container
 	docker rmi dbp
+
+run-nginx:
+	docker build -t nginxp ./nginx
+	docker run --name nginxp-container -p 1337:80 -t nginxp
+
+down-nginx:
+	docker rm nginxp-container
+	docker rmi nginxp
 
 prune:
 	docker container prune -f

@@ -2,17 +2,16 @@
 *
 
 # Besides this files
-!README.md
-!.gitignore
-!Docker-compose.yml
-!Makefile
+!Dockerfile
+!nginx.conf
 
 # Also this folders
-!iac
-!app
-!db
+!.gitignore
+!conf.d
+!letsencrypt
+!sites-available
 !nginx
 
 # And everything in this folders
-!db/**
-!nginx/**
+!conf.d/*
+!sites-available/*
