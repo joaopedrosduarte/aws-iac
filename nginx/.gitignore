@@ -1,0 +1,18 @@
+# Ignore everything
+*
+
+# Besides this files
+!Dockerfile
+!nginx.conf
+
+# Also this folders
+!.gitignore
+!conf.d
+!letsencrypt
+!sites-available
+!nginx
+
+# And everything in this folders
+!conf.d/*
+!sites-available/*
+!letsencrypt/README.md

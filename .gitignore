@@ -6,11 +6,14 @@
 !.gitignore
 !Docker-compose.yml
 !Makefile
+!Docker-compose.prod.yml
 
 # Also this folders
 !iac
 !app
 !db
+!nginx
 
 # And everything in this folders
 !db/**
+!nginx/**
