@@ -1,0 +1,13 @@
+# Ignore everything
+*
+
+# Besides this files
+!variables.tf
+!.gitignore
+!output.tf
+!setup.sh
+!main.tf
+
+# Also this folders
+
+# And everything in this folders

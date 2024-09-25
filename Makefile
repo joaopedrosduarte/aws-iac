@@ -10,6 +10,9 @@ prod:
 down-prod:
 	docker compose -f Docker-compose.prod.yml down -v
 
+run-api: 
+	docker compose -f ./Docker-compose.prod.yml run api
+
 clean: 
 	make down
 	docker rmi project-db project-api -f
