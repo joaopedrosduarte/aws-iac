@@ -9,11 +9,12 @@
 !Docker-compose.prod.yml
 
 # Also this folders
-!iac
+!terraform
+!nginx
 !app
 !db
-!nginx
 
 # And everything in this folders
-!db/**
+!terraform/**
 !nginx/**
+!db/**
