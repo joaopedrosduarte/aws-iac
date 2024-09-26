@@ -31,4 +31,8 @@ COPY . .
 
 EXPOSE 8000
 
+FROM runtime AS dev
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+FROM runtime AS prod
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
