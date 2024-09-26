@@ -10,11 +10,13 @@
 
 # Also this folders
 !terraform
+!.github
 !nginx
 !app
 !db
 
 # And everything in this folders
 !terraform/**
+!.github/**
 !nginx/**
 !db/**
