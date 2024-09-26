@@ -1,0 +1,28 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login Dockerhub
+      env:
+        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      
+    - name: Build the Docker app image
+      run: docker buildx build --platform linux/amd64,linux/arm64 -t hotapd/fastapi-prod -f ./app/Dockerfile ./app
+    - name: Build the Docker nginx image
+      run: docker buildx build --platform linux/amd64,linux/arm64 -t hotapd/nginx-prod -f ./nginx/Dockerfile ./nginx
+    - name: Push to app image to Dockerhub
+      run: docker push hotapd/fastapi-prod
+    - name: Push to nginx image to Dockerhub
+      run: docker push hotapd/nginx-prod
