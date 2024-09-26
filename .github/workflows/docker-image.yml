@@ -19,9 +19,9 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       
     - name: Build the Docker app image
-      run: docker buildx build --platform linux/amd64,linux/arm64 -t hotapd/fastapi-prod -f ./app/Dockerfile ./app
+      run: docker buildx build --platform linux/amd64 -t hotapd/fastapi-prod -f ./app/Dockerfile ./app
     - name: Build the Docker nginx image
-      run: docker buildx build --platform linux/amd64,linux/arm64 -t hotapd/nginx-prod -f ./nginx/Dockerfile ./nginx
+      run: docker buildx build --platform linux/amd64 -t hotapd/nginx-prod -f ./nginx/Dockerfile ./nginx
     - name: Push to app image to Dockerhub
       run: docker push hotapd/fastapi-prod
     - name: Push to nginx image to Dockerhub
